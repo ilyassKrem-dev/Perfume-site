@@ -7,7 +7,7 @@ const sora = Sora({
   subsets: ['latin'],
   weight: ['100' , '200' , '300' , '400' , '500' , '600' , '700' , '800']
 })
-import Nav from '@/assets/Nav'
+import Nav from '@/assets/Nav/Nav'
 import Header from '@/assets/Header'
 export default function RootLayout({
   children,
