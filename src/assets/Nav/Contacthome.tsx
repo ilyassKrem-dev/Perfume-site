@@ -9,7 +9,7 @@ const navInfo = [
             },
             {
                 name: "Contact" , path: "/contact" , icon:<ImStack />
-            }
+            },
 ]
     
 export default function Contacthome() {
@@ -17,7 +17,7 @@ export default function Contacthome() {
     const pathname = usePathname()
     return (
         <>
-            <div className="flex gap-x-8 sm:gap-x-12 max-[350px]:gap-x-4">
+            <div className="flex gap-x-6 sm:gap-x-12 max-[350px]:gap-x-4">
                 {navInfo.map((item, index) => {
                     return (
                         <Link key={index} href={item.path} className={`text-2xl text-white`}>

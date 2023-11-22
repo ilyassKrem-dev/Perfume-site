@@ -1,10 +1,10 @@
 "use client"
-
+import Cart from "@/components/Cart/Cart"
 
 export default function Cartpage() {
 
 
     return (
-        <div>Cart</div>
+        <Cart />
     )
 }

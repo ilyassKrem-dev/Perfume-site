@@ -1,13 +1,16 @@
-
+import Link from "next/link"
 const navitems = [{
-    name:"Women"
+    name:"Women",
+    path: "/shop/women"
 },{
-    name:"Men"
+    name:"Men",
+    path: "/shop/men"
 },{
-    name:"New"
+    name:"New",
+    path: "/shop/new"
 }]
 
-export default function Home_nav() {
+export default function Shop_nav() {
 
 
     return (
@@ -16,9 +19,9 @@ export default function Home_nav() {
                 <div className="flex sm:ml-12 gap-x-4 sm:gap-x-8">
                     {navitems.map((item , index) => {
                         return (
-                            <div key={index} className="font-semibold cursor-pointer hover:text-accent hover:opacity-70 active:opacity-50 transition-all duration-300 w-[80px] text-center sm:w-full max-[300px]:w-full">
+                            <Link href={item.path} key={index} className="font-semibold cursor-pointer hover:text-accent hover:opacity-70 active:opacity-50 transition-all duration-300 w-[80px] text-center sm:w-full max-[300px]:w-full">
                                 {item.name}
-                            </div>
+                            </Link>
                         )
                     })}
 

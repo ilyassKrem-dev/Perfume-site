@@ -11,6 +11,7 @@ export default function Sort(props:any) {
     })
     function handleSort() {
         setShowSort(prev => !prev)
+
     }
     function handleSortClick(sorted:string) {
         if (sorted === "down") {
@@ -64,7 +65,7 @@ export default function Sort(props:any) {
                     className=" text-gray-500 text-2xl hover:text-black transition-all duration-100">
                         x
                     </div>}
-                    {showSort&&<div className="absolute bottom-[-5.9rem] right-[0rem] border bg-white border-black/30 rounded-lg p-3 z-10 flex flex-col">
+                    {showSort&&<div className={`absolute bottom-[-5.9rem] right-[0rem] border bg-white border-black/30 rounded-lg p-3 z-10 flex flex-col ${textShowen.text !== "Sort" && "px-[1.8rem]"}`}>
                         <div onClick={() => handleSortClick("down")}
                         className="flex items-center gap-x-2 hover:text-accent hover:opacity-70 transition-all duration-150">
                             <div className="font-semibold">
