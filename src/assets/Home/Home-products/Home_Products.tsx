@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function Home_Products(props: any) {
     function handleCloseClick(e: any) {
-        e.stopPropagation();
+  
         props.setSelectedImage(-1);
     }
     useEffect(() => {
@@ -24,12 +24,13 @@ export default function Home_Products(props: any) {
     <>
       {props.productsToShow.map((item: any, index: any) => {
         const isSelected = props.selectedImage === index;
+        const hoverClass = isSelected ? "hover:opacity-100" : "hover:opacity-70";
         return (
           <div
             key={index}
             onClick={() => props.setSelectedImage(index)}
-            className="flex mt-6 flex-col">
-            <div className="relative">
+            className={`flex mt-6 flex-col ${hoverClass}`}>
+            <div className="relative ">
               <Image
                 src={"/perfume/" + item.thumbnail}
                 priority={true}
@@ -39,11 +40,11 @@ export default function Home_Products(props: any) {
                 className=" rounded-lg lg:w-auto lg:h-auto cursor-pointer"
               />
               {isSelected && (
-                <div  className="fixed top-0 left-0 w-[100%] h-[100%] bg-black/80 flex justify-center items-center z-50 overflow-y-scroll">
-                  <div className="bg-white w-[70%] h-[75%] rounded-lg flex flex-col items-center p-5 relative justify-evenly lg:flex-row lg:items-center lg:h-[55%] tall:h-[43%] xl:justify-around">
+                <div  className="fixed top-0 left-0 w-[100%] h-screen bg-black/80 flex justify-center items-center z-50 overflow-y-scroll ">
+                  <div className="bg-white w-[70%] h-[75%] rounded-lg flex flex-col items-center p-5 relative justify-evenly lg:flex-row lg:items-center lg:h-[55%]  xl:justify-around xl:w-[60%] md:h-[55%] overflow-y-scroll">
                     
-                    <Image src={"/perfume/" + item.thumbnail} alt="" width={300} height={300}
-                    className="  rounded-lg "/>
+                    <Image src={"/perfume/" + item.thumbnail} alt="" width={270} height={270}
+                    className=" rounded-lg"/>
                     <div className="flex flex-col items-center mt-2 justify-around flex-1 lg:h-[65%] lg:mr-10 xl:mr-0">
                         <div>
                             <h2 className="h2 text-2xl text-center mb-2">{item.title}</h2>
@@ -59,7 +60,7 @@ export default function Home_Products(props: any) {
                         </div>
 
                     </div>
-                    <div onClick={handleCloseClick} className="absolute top-1 right-2 font-bold text-xl cursor-pointer hover:opacity-70">
+                    <div onClick={handleCloseClick} className="absolute top-[0.1rem] right-1 font-bold text-xl cursor-pointer hover:opacity-70 transition-all duration-150">
                         X
                     </div>
                   </div>

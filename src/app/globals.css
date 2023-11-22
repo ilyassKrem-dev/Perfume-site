@@ -23,7 +23,7 @@
 
 @layer base {
   body {
-    @apply  pb-[100px] leading-relaxed ;
+    @apply   pb-[100px] leading-relaxed ;
   }
   .page {
     @apply w-full h-screen overflow-hidden;
@@ -51,4 +51,5 @@
   .textarea {
     @apply w-full h-[180px] p-6 capitalize rounded-lg resize-none;
   }
+
 }
