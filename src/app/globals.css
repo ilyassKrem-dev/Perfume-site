@@ -8,17 +8,17 @@
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
-  background-color: #0D47A1;
+  background-color: #f13024 ;
 }
 .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
   opacity: 0.4;
-  background-color: #000000; /* Adjust the color as needed */
+  background-color: #000000; 
 }
 .swiper-button-next:after,
 .swiper-button-prev:after,
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
-  color: #42A5F5;
+  color: #f13024;
 }
 
 @layer base {

@@ -1,4 +1,4 @@
-export const Cart_products: { product: any; quantity: number }[] = [];
+export let Cart_products: { product: any; quantity: number }[] = [];
 
 export function pushToCart(product: any, quantity: number = 1) {
     
@@ -13,6 +13,10 @@ export function pushToCart(product: any, quantity: number = 1) {
       
         Cart_products.push({ product: product, quantity: quantity });
       }
-    console.log(Cart_products)
+    
   }
 
+export function removeItem(product:any) {
+    const Test = Cart_products.filter(item => item.product !== product)
+    Cart_products = Test
+}

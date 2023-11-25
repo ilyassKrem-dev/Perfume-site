@@ -2,19 +2,38 @@ import { Cart_products } from "@/assets/Cart/Cart-products/Cart_products"
 import {usePathname} from "next/navigation"
 import Link from "next/link"
 import {LuShoppingCart,} from "react-icons/lu"
-
+import { useEffect, useState } from "react"
+import Hoveritems from "./Hoveritems"
 
 
 const Cart ={
-    name: "Cart" , path: "/cart" , icon: <LuShoppingCart />,count: 0
+    name: "Cart" , path: "/cart",
+    icon: <LuShoppingCart />,
+    count: 0
 }
 
 
 export default function Cartnav() {
     const pathname = usePathname()
-   
+    const [test , setTest] = useState(true)
+    function Add() {
+        setTest(prev => !prev)
+    }
+    useEffect(() => {
+        const id = setInterval(() => {
+            try {
+                Add();
+                Cart.count = Cart_products.length
+            }catch (error) {
+                console.error('Error occurred:', error);
+                clearInterval(id); 
+              }
+        } , 100)
+    })
+    
+    
     return (
-        <div>
+        <div className="group">
             <Link href={Cart.path} className='text-2xl text-white'>
                     <div className={`${Cart.path === pathname && 'text-accent font-semibold'} flex flex-col items-center hover:text-accent transition-all duration-300`}>
                         <div className="relative">
@@ -35,20 +54,8 @@ export default function Cartnav() {
                         </div>
                     </div>
             </Link>
-            <div className="hidden sm:flex absolute -bottom-20 border border-black/30 bg-white p-2 rounded-lg">
-                <div>
-                   {Cart_products.map((item,index) => {
-                    return (
-                        <div key={index}>
-                            <div >
-                                {item.product.brand}
-                            </div>
-
-                        </div>
-                    )
-                   })}
-                </div>
-            </div> 
+            {pathname !== "/cart"&&<Hoveritems Cart_products={Cart_products} Cart={Cart}/>}
+            
         </div>
     )
 }

@@ -1,7 +1,7 @@
 export default [
     {
         id: 1,
-        title: "Allure Chanel",
+        title: "Allure",
         description: "A sophisticated fragrance with hints of citrus and musk.",
         price: 45.99,
         rating: 4.5,
@@ -13,7 +13,7 @@ export default [
     },
     {
         id: 2,
-        title: "Chance Chanel",
+        title: "Chance",
         description: "A floral and woody scent perfect for everyday wear.",
         price: 59.95,
         rating: 4.2,
@@ -25,7 +25,7 @@ export default [
     },
     {
         id: 3,
-        title: "Shalimar l'eau",
+        title: "Rouge",
         description: "A refreshing scent with aquatic and green notes.",
         price: 32.50,
         rating: 4.0,
@@ -49,7 +49,7 @@ export default [
     },
     {
         id: 5,
-        title: "Fiand GUCCI",
+        title: "Fiand",
         description: "A bold and captivating scent with leather and amber tones.",
         price: 90.25,
         rating: 4.9,

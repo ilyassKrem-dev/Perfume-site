@@ -1,4 +1,4 @@
-import Cartnav from "./Cartnav";
+import Cartnav from "./Cart_nav/Cartnav";
 import Usernav from "./Usernav";
 export default function Allnav() {
     return (
