@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown  } from "react-icons/md";
 import { HiOutlineArrowNarrowDown,HiOutlineArrowNarrowUp  } from "react-icons/hi";
-
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Sort(props:any) {
     const [showSort , setShowSort] = useState(false)
@@ -11,8 +11,8 @@ export default function Sort(props:any) {
     })
     function handleSort() {
         setShowSort(prev => !prev)
-
     }
+
     function handleSortClick(sorted:string) {
         if (sorted === "down") {
             props.setProducts((prev:any) => {
@@ -61,27 +61,39 @@ export default function Sort(props:any) {
                         </div>
                     </div>
                     {textShowen.text !== "Sort"&&
-                    <div onClick={() => handleSortClick("remove")}
+                    <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => handleSortClick("remove")}
                     className=" text-gray-500 text-2xl hover:text-black transition-all duration-100">
                         x
-                    </div>}
-                    {showSort&&<div className={`absolute bottom-[-5.9rem] right-[0rem] border bg-white border-black/30 rounded-lg p-3 z-10 flex flex-col ${textShowen.text !== "Sort" && "px-[1.8rem]"}`}>
-                        <div onClick={() => handleSortClick("down")}
-                        className="flex items-center gap-x-2 hover:text-accent hover:opacity-70 transition-all duration-150">
-                            <div className="font-semibold">
-                                Price
+                    </motion.div>}
+                    <AnimatePresence>
+                        {showSort&&
+                        <motion.div
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.5, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className={`absolute bottom-[-5.9rem] right-[0rem] border bg-white border-black/30 rounded-lg p-3 z-10 flex flex-col ${textShowen.text !== "Sort" && "px-[1.8rem]"}`}>
+                            <div onClick={() => handleSortClick("down")}
+                            className="flex items-center gap-x-2 hover:text-accent hover:opacity-70 transition-all duration-150">
+                                <div className="font-semibold">
+                                    Price
+                                </div>
+                                <HiOutlineArrowNarrowDown />
                             </div>
-                            <HiOutlineArrowNarrowDown />
-                        </div>
-                        <div className=" border-b-2 border-black w-full h-1"></div>
-                        <div onClick={() => handleSortClick("up")}
-                        className="flex items-center gap-x-2 mt-2 hover:text-accent hover:opacity-70 transition-all duration-150">
-                            <div className="font-semibold">
-                                Price
+                            <div className=" border-b-2 border-black w-full h-1"></div>
+                            <div onClick={() => handleSortClick("up")}
+                            className="flex items-center gap-x-2 mt-2 hover:text-accent hover:opacity-70 transition-all duration-150">
+                                <div className="font-semibold">
+                                    Price
+                                </div>
+                                <HiOutlineArrowNarrowUp />
                             </div>
-                            <HiOutlineArrowNarrowUp />
-                        </div>
-                    </div>}
+                        </motion.div>}
+                    </AnimatePresence>
                 </button>
             </div>
         </div>

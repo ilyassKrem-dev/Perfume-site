@@ -7,7 +7,9 @@ export default function Hoveritems(props:any) {
     const cartProductsSplit = props.Cart_products.slice(0,2)
     return(
         <>
-            {props.Cart_products.length !== 0 &&<div className={`hidden  sm:flex-col absolute ${props.Cart_products.length === 0 ? "-bottom-[3.5rem]":props.Cart_products.length === 1 ? " -bottom-[6.5rem]":props.Cart_products.length === 2 ?"-bottom-[10.5rem]":" -bottom-[13.2rem]"} ${props.Cart_products.length === 0?"right-[4.35rem] p-2":props.Cart_products.length >1?"right-[0.25rem]":"right-[0.3rem]"}  right-12 border border-black/30 bg-white p-2 rounded-lg sm:items-center sm:gap-y-4 group-hover:sm:flex`}>
+            
+            {props.Cart_products.length !== 0 &&
+            <div className={`hidden  sm:flex-col absolute ${props.Cart_products.length === 0 ? "-bottom-[3.5rem]":props.Cart_products.length === 1 ? " -bottom-[6.5rem]":props.Cart_products.length === 2 ?"-bottom-[10.5rem]":" -bottom-[13.2rem]"} ${props.Cart_products.length === 0?"right-[4.35rem] p-2":props.Cart_products.length >1?"right-[0.25rem]":"right-[0.3rem]"}  right-12 border border-black/30 bg-white p-2 rounded-lg sm:items-center sm:gap-y-4 group-hover:sm:flex`}>
                     <div className="absolute border-solid border-l-transparent border-l-8 border-b-[8px] border-r-8 border-b-white border-r-transparent -top-[0.48rem] "></div>
                     <div className="border-b-2 border-black">
                         Your items

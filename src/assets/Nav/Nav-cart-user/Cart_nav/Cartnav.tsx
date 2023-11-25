@@ -54,7 +54,8 @@ export default function Cartnav() {
                         </div>
                     </div>
             </Link>
-            {pathname !== "/cart"&&<Hoveritems Cart_products={Cart_products} Cart={Cart}/>}
+            {pathname !== "/cart"&&
+            <Hoveritems Cart_products={Cart_products} Cart={Cart}/>}
             
         </div>
     )

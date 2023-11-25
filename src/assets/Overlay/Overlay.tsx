@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useEffect} from "react";
 import { pushToCart } from "../Cart/Cart-products/Cart_products";
-
+import { motion, AnimatePresence } from "framer-motion";
 export default function Overlay(props:any) {
    
     function handleCloseClick(e: any) {
@@ -24,31 +24,40 @@ export default function Overlay(props:any) {
     }, []);
     
     return (
-        <div  className="fixed top-0 left-0 w-[100%] h-screen bg-black/80 flex justify-center items-center z-50 overflow-y-scroll ">
-            <div className="background bg-white w-[70%] h-[75%] rounded-lg flex flex-col items-center p-5 relative justify-evenly lg:flex-row lg:items-center lg:h-[48%]  xl:justify-around xl:w-[60%] md:h-[50%] overflow-y-scroll [&::-webkit-scrollbar]:hidden">
-            
-            <Image src={"/perfume/" + props.item.thumbnail} alt="" width={270} height={270}
-            className=" rounded-lg"/>
-            <div className="flex flex-col items-center mt-2 justify-around flex-1 lg:h-[65%] lg:ml-10">
-                <div>
-                    <h2 className="h2 text-2xl text-center mb-2">{props.item.title}</h2>
-                    <p className="text-black font-normal text-center">{props.item.description}</p>
-                </div>
-                <div className="">
-                    <p className="text-black text-center font-semibold">
-                        Price: {props.item.price} $
-                    </p>
-                    <button onClick={() => pushToCart(props.item , 1)}
-                    className=" bg-primary/80 text-white p-4 px-8 rounded-lg  hover:text-accent hover:opacity-80 transition-all duration-300 mt-4 max-[320px]:px-6 xl:px-24">
-                        Add to cart
-                    </button>
-                </div>
+        <AnimatePresence>
+            {props.selectedImage !== -1 && (
+            <div 
+            className="fixed top-0 left-0 w-[100%] h-screen bg-black/80 flex justify-center items-center z-50 overflow-y-scroll ">
+                <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.3 }}  
+                className="background bg-white w-[70%] h-[75%] rounded-lg flex flex-col items-center p-5 relative justify-evenly lg:flex-row lg:items-center lg:h-[48%]  xl:justify-around xl:w-[60%] md:h-[50%] overflow-y-scroll [&::-webkit-scrollbar]:hidden">
+                
+                <Image src={"/perfume/" + props.item.thumbnail} alt="" width={270} height={270}
+                className=" rounded-lg"/>
+                <div className="flex flex-col items-center mt-2 justify-around flex-1 lg:h-[65%] lg:ml-10">
+                    <div>
+                        <h2 className="h2 text-2xl text-center mb-2">{props.item.title}</h2>
+                        <p className="text-black font-normal text-center">{props.item.description}</p>
+                    </div>
+                    <div className="">
+                        <p className="text-black text-center font-semibold">
+                            Price: {props.item.price} $
+                        </p>
+                        <button onClick={() => pushToCart(props.item , 1)}
+                        className=" bg-primary/80 text-white p-4 px-8 rounded-lg  hover:text-accent hover:opacity-80 transition-all duration-300 mt-4 max-[320px]:px-6 xl:px-24">
+                            Add to cart
+                        </button>
+                    </div>
 
-            </div>
-            <div onClick={handleCloseClick} className="absolute top-[0.1rem] right-1 font-bold text-xl cursor-pointer hover:opacity-70 transition-all duration-150">
-                X
-            </div>
-            </div>
-        </div>
+                </div>
+                <div onClick={handleCloseClick} className="absolute top-[0.1rem] right-1 font-bold text-xl cursor-pointer hover:opacity-70 transition-all duration-150">
+                    X
+                </div>
+                </motion.div>
+            </div>)}
+        </AnimatePresence>
     )
 }

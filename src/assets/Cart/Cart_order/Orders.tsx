@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
-
+import { adjustQuantityInCart } from "../Cart-products/Cart_products";
 
 export default function Orders(props: any) {
 
@@ -22,23 +22,20 @@ export default function Orders(props: any) {
     });
     props.setCartProducts(newCart);
   }
-  
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>, product: any) => {
-
     const newQuantity = parseInt(event.target.value, 10);
     if (!isNaN(newQuantity)) {
-        const updatedCart = props.cartProducts.map((item:any) => {
+        const newCart = props.cartProducts.map((item:any) => {
             if (item === product) {
                 return { ...item, quantity: newQuantity };
             } else {
                 return item;
             }
         });
-       
-        props.setCartProducts(updatedCart);
-        
+        props.setCartProducts(newCart);
     }
 };
+  
   return (
     <div className="flex flex-col gap-y-4 sm:flex-1">
       <div className="flex w-full flex-col items-center gap-y-4">
@@ -107,22 +104,26 @@ export default function Orders(props: any) {
                     </div>
                     <div className="relative">
                     <div
-                        onClick={() => addQuantity("+", item)}
+                        onClick={() => {
+                            addQuantity("+", item);
+                            adjustQuantityInCart(item.product.id , 1)
+                    }}
                         className="absolute text-3xl cursor-pointer top-[0.2rem] left-2"
                     >
                         +
                     </div>
                     <input
                         type="number"
-                        onChange={(e) => {
-                        handleQuantityChange(e, item);
-                        }}
+                        onChange={(e) => handleQuantityChange(e , item)}
+                        name="quantity"
                         placeholder="0"
                         value={item.quantity}
                         className="input pl-0 text-center w-[100px] placeholder:text-black/50 text-black font-semibold [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
                     <div
-                        onClick={() => addQuantity("-", item)}
+                        onClick={() => {
+                            addQuantity("-", item);
+                            adjustQuantityInCart(item , -1)}}
                         className="absolute text-3xl cursor-pointer top-0 right-2"
                     >
                         -
