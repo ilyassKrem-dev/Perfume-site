@@ -20,7 +20,7 @@ export default function Bottom() {
         setUserEmail(e.target.value)
     }
     return (
-        <footer className=" relative bottom-0 bg-primary/90 p-5">
+        <footer className=" relative bottom-0 w-full bg-primary/90 p-5">
             <div className="flex flex-col lg:flex-row items-center gap-y-6 lg:justify-between">
                 <div className="flex flex-col items-center gap-y-5 lg:flex-1 lg:items-start">
                     <div className="flex items-center flex-col lg:items-start">

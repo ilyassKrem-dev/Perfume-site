@@ -30,8 +30,8 @@ export default function Contact() {
         
     } , [send])
     return (
-        <div className="flex items-center justify-center p-5">
-            <div className="flex p-5 items-center flex-col gap-y-4">
+        <div className="flex items-center justify-center my-10 lg:my-0 h-full">
+            <div className="flex  items-center flex-col gap-y-4">
                 <motion.h2 
                 variants={fadeIn('up',0.1)}
                 initial="hidden"

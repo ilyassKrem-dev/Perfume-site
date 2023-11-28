@@ -5,6 +5,6 @@ export default function Userpage() {
 
 
     return (
-        <div className="h-screen flex items-center justify-center">User</div>
+        <div className="lg:h-screen mb-20 lg:mb-0 flex items-center justify-center">User</div>
     )
 }
