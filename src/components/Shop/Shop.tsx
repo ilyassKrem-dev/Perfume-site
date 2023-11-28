@@ -3,7 +3,7 @@ import Shop_nav from "@/assets/Shop/Shop_nav"
 import Sort from "@/assets/Shop/Sort"
 import { useState } from "react"
 import Shopsection from "@/assets/Shop/Shop-section/Shopsection"
-import { Cart_products } from "@/assets/Cart/Cart-products/Cart_products"
+
 interface ShopProps {
     category: string; 
   }

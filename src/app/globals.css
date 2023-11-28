@@ -23,7 +23,7 @@
 
 @layer base {
   body {
-    @apply   pb-[100px] leading-relaxed ;
+    @apply   leading-relaxed ;
   }
   .page {
     @apply w-full h-screen overflow-hidden;

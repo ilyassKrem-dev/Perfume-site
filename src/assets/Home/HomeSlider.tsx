@@ -25,6 +25,7 @@ export default function HomeSlider() {
                         <Image 
                         src={`/perfume/perfume${index+1}.png`} 
                         alt={`perfume${index+1}`} fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 1200px"
                         className=" object-cover rounded-lg"
                        />
 

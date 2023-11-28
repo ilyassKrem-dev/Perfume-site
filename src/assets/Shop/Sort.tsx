@@ -52,11 +52,11 @@ export default function Sort(props:any) {
         <div className="flex mt-8">
             <div className="w-full flex justify-center items-center gap-x-5 sm:justify-end">
                 <button  className="flex items-center border border-black/30 bg-transparent p-3 rounded-lg  max-[300px]:p-2  relative gap-x-3">
-                    <div onClick={handleSort} className="flex items-center gap-x-2 hover:opacity-70 hover:text-accent transition-all duration-200">
+                    <div onClick={handleSort} className="flex items-center gap-x-2 hover:opacity-70 hover:text-accent transition-all duration-200 group">
                         <div className=" font-semibold">
                             {textShowen.text}
                         </div>
-                        <div className=" text-gray-500 text-2xl">
+                        <div className=" text-gray-500 text-2xl group-hover:text-accent">
                             {textShowen.icon}
                         </div>
                     </div>

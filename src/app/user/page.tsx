@@ -5,6 +5,6 @@ export default function Userpage() {
 
 
     return (
-        <div>User</div>
+        <div className="h-screen flex items-center justify-center">User</div>
     )
 }

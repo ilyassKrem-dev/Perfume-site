@@ -15,7 +15,6 @@ export default function Searchbar() {
     useEffect(() => {
         function hide(e:any) {
             if (!e.target.closest('.search-bar-container')) {
-                console.log('Clicked outside search bar');
                 setShowResults(false);
             }
         }
