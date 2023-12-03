@@ -5,7 +5,7 @@ import Allnav from "./Nav-cart-user/All";
 import Nav_shop from "./Nav_shop";
 export default function Nav() {
     return (
-        <div className=" bg-primary w-full fixed bottom-0 sm:sticky z-50">
+        <div className=" bg-primary w-full fixed bottom-0 sm:sticky sm:top-0 z-50">
             <div className="flex p-3 items-center justify-center gap-x-8 sm:justify-between sm:mx-4 max-[350px]:gap-x-3">
                 <div className="flex">
                     <Contacthome/>

@@ -30,8 +30,8 @@ export default function Contact() {
         
     } , [send])
     return (
-        <div className="flex items-center justify-center my-10 lg:my-0 h-full">
-            <div className="flex  items-center flex-col gap-y-4">
+        <div className="flex items-center justify-center my-10  lg:my-0 h-full min-h-screen ">
+            <div className="flex  items-center flex-col gap-y-4 w-full sm:w-auto">
                 <motion.h2 
                 variants={fadeIn('up',0.1)}
                 initial="hidden"
@@ -43,8 +43,8 @@ export default function Contact() {
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                onSubmit={handleSubmit} className="flex flex-col items-center gap-y-4 md:w-[120%]">
-                    <div className="flex gap-x-3 md:w-full">
+                onSubmit={handleSubmit} className="flex flex-col items-center gap-y-4 md:w-[120%] w-[70%]">
+                    <div className="flex gap-x-3 md:w-full sm:flex-row flex-col gap-y-4 w-full">
                         <input type="text" className="input focus:ring-accent" autoComplete="on" placeholder="name" onChange={handleChange} name="name" value={userInfo.name}/>
 
                         <input type="email" autoComplete="on" className="input focus:ring-accent" placeholder="email" onChange={handleChange} name="email" value={userInfo.email}/>

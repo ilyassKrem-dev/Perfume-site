@@ -8,7 +8,7 @@ export default function Homemain() {
     
 
     return (
-        <div className="flex items-center justify-center py-12 h-full relative">
+        <div className="flex items-center justify-center py-12 h-full min-h-screen relative">
             <div className="absolute w-full right-0 bottom-0 h-full  -z-10 ">
                 <HomeParticles />
             </div>

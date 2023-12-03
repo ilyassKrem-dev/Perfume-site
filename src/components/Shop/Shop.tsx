@@ -17,7 +17,7 @@ export default function Shop({category}:ShopProps) {
     }
    
     return (
-        <div className="p-5">
+        <div className="p-5 min-h-screen">
             <Shop_nav />
             <Sort 
             products={Products} setProducts={setProductsInfo}/>
